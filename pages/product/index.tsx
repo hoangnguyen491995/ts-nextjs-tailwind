@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { getProducts } from "../productDetail/DetailSlice";
 
-
 export interface ProductProps {}
 export interface Post {
   name: string;
@@ -23,7 +22,7 @@ export default function Product(props: ProductProps) {
   const dispatch = useDispatch();
 
   const [posts, setPosts] = useState<Posts[]>([]);
-  const router = useRouter()
+  const router = useRouter();
   const handleRouter = () => {
     router.push("/");
   };
@@ -31,20 +30,12 @@ export default function Product(props: ProductProps) {
     axios
       .get("https://js-post-api.herokuapp.com/api/products")
       .then(function (response) {
-        // handle success
-
         setPosts(response.data);
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       });
   }, []);
-
-  // const handleProductDetail = () => {
-  //    dispatch(getProducts)
-  //   router.push("/productDetail")
-  // };
 
   return (
     <div>
@@ -52,19 +43,20 @@ export default function Product(props: ProductProps) {
       {posts !== [] &&
         posts.map((post: any, index: number) => {
           return (
-            <div
-              key={index}
-             
-            >
+            <div key={index}>
               <p>{post.name}</p>
-                <img src={post.images[0]} alt="" />
-                <button  onClick={() => {
-                dispatch(getProducts({id:post.id }));
-               router.push("/productDetail")
-              }} > chi tiết sản phẩm </button>
-           
+              <img src={post.images[0]} alt="" />
+              <button
+                onClick={() => {
+                  dispatch(getProducts({ id: post.id }));
+                  router.push("/productDetail");
+                }}
+              >
+                {" "}
+                chi tiết sản phẩm{" "}
+              </button>
             </div>
-          );       
+          );
         })}
       List Product
     </div>

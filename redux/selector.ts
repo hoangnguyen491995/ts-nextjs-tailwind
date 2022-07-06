@@ -8,7 +8,7 @@
 // }
 
 export const productDetail$ = (state:any) => {
-  console.log(state);
+  console.log(state)
 
   return state.productDetail
 };

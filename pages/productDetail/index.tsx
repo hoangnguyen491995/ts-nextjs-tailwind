@@ -27,9 +27,14 @@ function Product(props: ProductDetailProps) {
 
       <button onClick={() => router.push("/product")}>
         {" "}
-        quay lại danh sách sản phẩm
+        Danh sách sản phẩm
       </button>
-
+     
+      <button onClick={() => router.push("/form")}>
+        {" "}
+          form
+      </button>
+     
       </div>
   );
 }

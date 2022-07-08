@@ -1,14 +1,20 @@
-// export interface Post {
-//   name: string;
-//   id: number;
-//   images: string;
-//   shortDescription: string;
-//   isFreeShip: boolean;
-//   salePrice: number;
-// }
+import { Res } from "../pages/interface";
 
-export const productDetail$ = (state:any) => {
-  console.log(state)
 
-  return state.productDetail
+interface ActionRes {
+  productDetail: {
+    res: Res;
+  };
+}
+
+export const productDetail$ = (state: ActionRes) => {
+  console.log(state.productDetail);
+
+  return state.productDetail;
 };
+
+export const findProduct$ = (state: any) => {
+  console.log(state.findProduct);
+
+  return state.findProduct;
+}

@@ -1,8 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Res } from "../interface";
 
-export interface Todo {
-  id: number;
-}
 
 export default createSlice({
   name: "productDetail",
@@ -15,11 +13,7 @@ export default createSlice({
     salePrice: 0,
     isFreeShip: false,
   },
-  reducers: {
-    products: (state, action) => {
-      console.log(action);
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state, action) => {
@@ -27,7 +21,7 @@ export default createSlice({
       })
       .addCase(getProducts.fulfilled, (state, action) => {
         console.log("thành công");
-        action.payload.map((res: any) => {
+        action.payload.map((res: Res) => {
           console.log(res);
           state.id = res.id;
           state.images = res.images[0];
@@ -36,7 +30,6 @@ export default createSlice({
           state.salePrice = res.salePrice;
           state.isFreeShip = res.isFreeShip;
           state.shortDescription = res.shortDescription;
-         
         });
       })
       .addCase(getProducts.rejected, (state, action) => {
@@ -44,12 +37,14 @@ export default createSlice({
       });
   },
 });
+   
 
-export const getProducts = createAsyncThunk(
+
+export const getProducts = createAsyncThunk (
   "productDetail/getProducts",
-  async (todo: Todo) => {
+  async (todo:number) => {
     const res = await fetch(
-      `https://js-post-api.herokuapp.com/api/products?id=${todo.id}`
+      `https://js-post-api.herokuapp.com/api/products?id=${todo}`
     );
     const data = await res.json();
 

@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { productDetail$ } from "../../redux/selector";
+import { login$, productDetail$ } from "../../redux/selector";
 import { ProductDetailProps } from "../../src/component/find/find";
 import { Res } from "../interface";
 
@@ -21,12 +21,16 @@ interface Student {
 }
 function Product(props: ProductDetailProps) {
   const router = useRouter();
-  const prdt:any = useSelector(productDetail$);
-  console.log(prdt);
+  const prdt:any = useSelector(productDetail$)
+  const login= useSelector(login$)
+
+
+
+ console.log(login$,'store');
 
   return (
     <div>
-      <div>
+      <div>       
         <p> Tên sản phẩm: {prdt.name}</p>
         <img src={prdt.images} alt="" />
          <p>{prdt.salePrice}</p>

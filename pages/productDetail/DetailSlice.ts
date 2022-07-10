@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+
 import { Res } from "../interface";
 
 
@@ -17,12 +18,12 @@ export default createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getProducts.pending, (state, action) => {
-        console.log(action, "đang chờ");
+       // console.log(action, "đang chờ");
       })
       .addCase(getProducts.fulfilled, (state, action) => {
         console.log("thành công");
         action.payload.map((res: Res) => {
-          console.log(res);
+        //  console.log(res);
           state.id = res.id;
           state.images = res.images[0];
           state.name = res.name;
@@ -40,7 +41,7 @@ export default createSlice({
    
 
 
-export const getProducts = createAsyncThunk (
+export const getProducts  = createAsyncThunk (
   "productDetail/getProducts",
   async (todo:number) => {
     const res = await fetch(

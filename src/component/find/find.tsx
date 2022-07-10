@@ -1,7 +1,8 @@
 import { Button } from "@material-ui/core";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import productSlice from "../../../pages/product/productSlice";
+import { FindProductSlice } from "../../../pages/product/productSlice";
+
 
 export interface ProductDetailProps {}
 
@@ -13,7 +14,7 @@ function Find(props: ProductDetailProps) {
 
     setValue(e.target.value);
 
-    dispatch(productSlice.actions.FindProduct(e.target.value));
+    dispatch(FindProductSlice.actions.FindProduct(e.target.value));
   };
 
   return (
@@ -27,6 +28,7 @@ function Find(props: ProductDetailProps) {
             placeholder="Nhập tên sản phẩm"
             onChange={handleInput}
             value={value}
+          
           />
           <Button variant="contained" color="secondary" className="text-blue-600" type="button">
             Tìm kiếm

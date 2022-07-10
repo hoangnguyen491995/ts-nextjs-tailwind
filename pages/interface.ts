@@ -17,7 +17,10 @@ export interface Res {
   isFreeShip: boolean;
   shortDescription: string;
   price:number
+  
 }
 export interface ProductProps {}
-
-
+export interface User{
+  id:number|string
+  name:string
+}

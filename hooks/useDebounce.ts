@@ -9,7 +9,7 @@ function useDebounce(value:any, delay:any) {
 
     
   }, [value,delay]);
-  return debouncedvalue;
+  return debouncedvalue
 }
 
 export default useDebounce;

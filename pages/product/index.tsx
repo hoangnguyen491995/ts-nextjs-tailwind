@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import axios from "axios"
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../productDetail/DetailSlice";
@@ -8,14 +8,16 @@ import { findProduct$ } from "../../redux/selector";
 import useDebounce from "../../hooks/useDebounce";
 import { Button } from "@material-ui/core";
 import { Res } from "../interface";
+import SliceSagaCart from "./SliceSagaCart";
 
-export interface ProductProps {}
+export interface ProductProps { }
 export interface Post {
   name: string;
   images: string;
+  id:number
 }
 
-export interface Posts {}
+export interface Posts { }
 
 interface Finds {
   name: string;
@@ -23,7 +25,7 @@ interface Finds {
 export default function Product(props: ProductProps) {
   const dispatch = useDispatch();
   const FindProduct: Finds = useSelector(findProduct$);
-  console.log(FindProduct);
+
   const debounced = useDebounce(FindProduct.name, 800);
   const [posts, setPosts] = useState<Posts[]>([]);
   const router = useRouter();
@@ -44,8 +46,8 @@ export default function Product(props: ProductProps) {
       });
   }, [debounced]);
 
-   console.log(posts)
-   
+
+     
 
   return (
     <div>
@@ -65,7 +67,7 @@ export default function Product(props: ProductProps) {
                   variant="contained"
                   color="primary"
                   onClick={() => {
-                    dispatch(getProducts(post.id));
+                    dispatch(getProducts(post.id))
                     router.push("/productDetail");
                   }}
                 >
@@ -73,12 +75,10 @@ export default function Product(props: ProductProps) {
                 </Button>
                 <Button variant="contained"
                   color="primary"
-                  onClick={() => {
-                    dispatch(getProducts(post.id));
-                    router.push("/cart");
+                  onClick={()=>{
+                       dispatch(SliceSagaCart.actions.addCart(post.id))
                   }}
-
-                  > Thêm vào giỏ hàng</Button>
+                > Thêm vào giỏ hàng</Button>
               </div>
             </div>
           );

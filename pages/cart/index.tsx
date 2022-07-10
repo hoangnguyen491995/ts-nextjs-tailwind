@@ -1,13 +1,22 @@
-import { Grid } from "@material-ui/core";
+import { useSelector } from "react-redux";
+import { cart$ } from "../../redux/selector";
+import { ProductProps } from "../interface";
+import { Id } from "../product/SliceSagaCart";
 
-const Cart: React.FC = () => {
+
+const Cart: React.FC = (props: ProductProps) => {
+
+
+  const cart: Id = useSelector(cart$)
+  console.log(cart)
+
   return (
-    <Grid container spacing={2}>
-      <Grid  md={3}> name </Grid>
-      <Grid  md={3}> hình ảnh</Grid>
-      <Grid  md={3}> Giá</Grid>
-      <Grid  md={3}> Mô tả chi tiết</Grid>
-    </Grid>
+
+    <div>
+
+      <p>{cart.id}</p>
+
+    </div>
   );
 };
 

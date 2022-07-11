@@ -54,6 +54,9 @@ const Home: NextPage = () => {
         <button onClick={() => router.push("/cart")} type="button">
           Cart
         </button>
+        <button onClick={() => router.push("/AddTech")} type="button">
+          AddTech
+        </button>
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>

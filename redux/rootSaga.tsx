@@ -16,12 +16,12 @@ import SliceSagaCart from "../pages/product/SliceSagaCart";
 
 export function* handleAddCartSaga(action: PayloadAction<number>) {
   console.log('log', action.payload);
-  try{
-   const cart:Res=  yield call (Api.handleAddCartSaga, action.payload)
-    yield put ({type:"cart/addCartSuccess",cart:cart})
-  }catch(e:any){
-    yield put ({type:"cart/addCartfailed",message:e.message})
-  }
+  // try{
+  // // const cart:Res=  yield call (Api.handleAddCartSaga, action.payload)
+  //   yield put ({type:"cart/addCartSuccess",cart:cart})
+  // }catch(e:any){
+  //   yield put ({type:"cart/addCartfailed",message:e.message})
+  // }
  // yield put(SliceSagaCart.actions.addCartSuccess(action.payload))
 
 

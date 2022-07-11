@@ -47,7 +47,7 @@ function Product(props: ProductDetailProps) {
 
       <button onClick={() => router.push("/form")}> form</button>
     </div>
-  );
+  )
 }
 
 export default Product;

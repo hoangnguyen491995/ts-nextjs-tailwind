@@ -10,6 +10,10 @@ import { Posts } from "../pages/product";
 import SliceSagaCart from "../pages/product/SliceSagaCart";
 
 // call(fn: (...args: any[]) => any, ...args: any[]): CallEffect<unknown>
+
+
+  
+
 export function* handleAddCartSaga(action: PayloadAction<number>) {
   console.log('log', action.payload);
   try{

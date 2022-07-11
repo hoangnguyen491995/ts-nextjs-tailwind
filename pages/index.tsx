@@ -4,27 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
-import { Button } from "@material-ui/core";
+
 import { useDispatch } from "react-redux";
 import { authSlice } from "../pagesSaga/authSlice";
 
 // qua trang khác  router.push('/success-page')
 
 const Home: NextPage = () => {
-  const router = useRouter()
+  const router = useRouter();
   const handleRouter = () => {
-    router.push("/product")
-  }
+    router.push("/product");
+  };
 
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const handleLogout = () => {
-
-    dispatch(authSlice.actions.logout())
-
-  }
-
-
+    dispatch(authSlice.actions.logout());
+  };
 
   return (
     <div className={styles.container}>
@@ -49,20 +44,14 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
-
-         
-        <button
-          onClick={() => router.push("/login")}
-          type="button"
-
-        >
+      
+        <button onClick={() => router.push("/login")} type="button">
           Login Page
         </button>
-        <button
-          onClick={() => router.push("/cart")}
-          type="button"
-
-        >
+        <button onClick={() => router.push("/AddClient")} type="button">
+          Client
+        </button>
+        <button onClick={() => router.push("/cart")} type="button">
           Cart
         </button>
         <p className={styles.description}>

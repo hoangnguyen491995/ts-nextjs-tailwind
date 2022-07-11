@@ -15,12 +15,12 @@ export default createSlice({
        
         
     },
-    addCartSuccess:(state,action:PayloadAction<number>)=>{
+    addCartSuccess:(state:any,action:PayloadAction<number>)=>{
         console.log(action,action.payload,'ok');
           
               state.id=action.payload
     },
-    addCartfailed:(state)=>{
+    addCartfailed:(state:any)=>{
         console.log('failed ')
           
           

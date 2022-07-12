@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 interface Techs {
     id: number
@@ -14,22 +14,25 @@ function AddTech() {
                 setTechs(response.data);
             })
             .catch(function (error) {
-                console.log(error);
-            });
+                console.log(error)
+            })
     }, [])
     return (
-        <div className="justify-center ">
-            ADD TECH
+        <div >
+           <p className='ml-4 font-semibold '> ADD TECH</p>
+        <div className="ml-5  w-[540px] h-[500px] overflow-auto mt-2 grid grid-cols-4   ">
             {techs != [] && techs.map((tech: Techs, index: number) => {
                 return (
-                    <div key={index} className='relative h-24 w-24  bg-yellow-100  mx-0.5 my-0.5  rounded  '>
-                        <img className=" absolute h-12 w-12 -left-4 -top-6  inset-y-0 left-1 rounded-full w-[60px] h-[60px]" src={tech.images[0]} alt="ảnh nhân viên" />
-                        <p className='absolute inset-y-0 left-3  inset-x-0  top-10'>{tech.id}</p>
+                    <div key={index} className='relative h-[96px] w-[106px] bg-yellow-100  rounded-md  mt-7 mb-4  '>
+                        <img className="absolute inset-x-0 inset-y-0 left-5 -top-7  rounded-full w-[65px] h-[60px] " src={tech.images[0]} alt="ảnh nhân viên" />
+                        <p className='absolute inset-y-0 inset-x-0 left-6   top-10  '>{tech.id}</p>
+                       
                     </div>
+                    
                 )
             })}
         </div>
+        </div>
     )
 }
-
 export default AddTech

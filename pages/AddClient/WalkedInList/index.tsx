@@ -1,16 +1,12 @@
-import { Input } from "antd";
-
 function WalkedInList() {
   return (
     <div>
-          <Input  
-            className="w-96 bg-white h-14 border-b-2 outline-none "
-            placeholder="Search Walked-in List"
-            type="text"
-            aria-label="Full name"
-            /> 
+      <input
+        className="w-[450px] h-10 hover:bg-cyan-100 outline-none border-b-2 "
+        placeholder=" Search Walked-in List "
+      ></input>
     </div>
   );
 }
 
-export default WalkedInList
+export default WalkedInList;
